@@ -2,6 +2,7 @@
 #include <iostream>
 #include "mkl_matrix.h"
 #include "test.h"
+#include "open_blas.h"
 using namespace std;
 
 int main(){
@@ -43,11 +44,13 @@ int main(){
     double* A;
     double* B;
     double* C;
+    double* D;
     double alpha = 1;
     double beta = 0;
     A = (double *)mkl_malloc( m*k*sizeof( double ), 64 );
     B = (double *)mkl_malloc( k*n*sizeof( double ), 64 );
     C = (double *)mkl_malloc( m*n*sizeof( double ), 64 );
+    D = (double *)mkl_malloc( m*n*sizeof( double ), 64 );
     for(int i = 0;i < 9;i ++ )
     {
         A[i] = i;
@@ -67,6 +70,12 @@ int main(){
     for(int i=0; i < 9; i++)
     {
         cout << C[i] << " ";
+    }
+    cout << "\n";
+    D = matrixMultiplyOpenBlas(m,n,k,alpha,beta,A,B,C);
+    for(int i=0; i < 9; i++)
+    {
+        cout << D[i] << " ";
     }
     cout << "\n";
     return 0;
