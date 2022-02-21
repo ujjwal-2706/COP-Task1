@@ -1,16 +1,16 @@
 #include <iostream>  
-#include <fstream> // for file io
-#include <vector> // for using vectors
-#include <cmath> // for using the inbuilt exponential function
-#include <string.h> // for comparing strings
+#include <fstream> 
+#include <vector> 
+#include <cmath> 
+#include <string.h> 
 using namespace std;
 
 //Defining a Matrix class that will be used to carry out the many functions defined below related to matrices 
 class Matrix
 {
     public:
-    int rowsize; // Attribute that contains the number of rows in a matrix
-    int columnsize; // Attribute that contains the number of columns in a matrix
+    int rowsize; 
+    int columnsize; 
     vector<vector<float>> data; // Attribute that is a vector of float vectors, to store the matrix entries
     Matrix(int rowsize, int columnsize); // constructor function for the Matrix class
 };
